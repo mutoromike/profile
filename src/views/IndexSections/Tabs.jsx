@@ -35,7 +35,7 @@ class Tabs extends React.Component {
       <div className="section section-tabs">
         <Container>
           <div className="title">
-            <h3 className="mb-3">Skills</h3>
+            <h3 className="mb-3">SKILLS</h3>
           </div>
           <Row>
             <Col className="ml-auto mr-auto" md="10" xl="6">
@@ -111,13 +111,15 @@ class Tabs extends React.Component {
                         type="button"
                       >
                         Flask
-                      </Button><Button
+                      </Button>
+                      <Button
                         className="btn-round"
                         color="primary"
                         type="button"
                       >
                         Pandas
-                      </Button><Button
+                      </Button>
+                      <Button
                         className="btn-round"
                         color="primary"
                         type="button"
@@ -127,23 +129,40 @@ class Tabs extends React.Component {
                     </TabPane>
                     <TabPane tabId="link2">
                       <p>
-                        Completely synergize resource taxing relationships via
-                        premier niche markets. Professionally cultivate
-                        one-to-one customer service with robust ideas. <br />
+                        I have expertise in creating Node-Express APIs. I
+                        will rate this 70% since Python is my preferred BackEnd
+                        Language <br />
                         <br />
-                        Dynamically innovate resource-leveling customer service
-                        for state of the art customer service.
+                        I don't mind working with a JavaScript API. Please reach out!
                       </p>
+                      <Button
+                        className="btn-round"
+                        color="primary"
+                        type="button"
+                      >
+                        NodeJS
+                      </Button>
+                      <Button
+                        className="btn-round"
+                        color="primary"
+                        type="button"
+                      >
+                        Express
+                      </Button>
                     </TabPane>
                     <TabPane tabId="link3">
                       <p>
-                        Efficiently unleash cross-media information without
-                        cross-media value. Quickly maximize timely deliverables
-                        for real-time schemas. <br />
+                        I have experience with GraphQL. Majorly with Python.<br />
                         <br />
-                        Dramatically maintain clicks-and-mortar solutions
-                        without functional solutions.
+                        Reach out for an awesome, One Endpoint API
                       </p>
+                      <Button
+                        className="btn-round"
+                        color="primary"
+                        type="button"
+                      >
+                        Python-GraphQL
+                      </Button>
                     </TabPane>
                   </TabContent>
                 </CardBody>
