@@ -23,7 +23,7 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar.jsx";
 import Footer from "components/Footer/Footer.jsx";
 
-class RegisterPage extends React.Component {
+class ContactPage extends React.Component {
   state = {
     squares1to6: "",
     squares7and8: ""
@@ -219,4 +219,4 @@ class RegisterPage extends React.Component {
   }
 }
 
-export default RegisterPage;
+export default ContactPage;

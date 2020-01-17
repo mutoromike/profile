@@ -8,7 +8,7 @@ import Footer from "components/Footer/Footer.jsx";
 // sections for this page/view
 import Skills from "views/IndexSections/Skills.jsx";
 import Tools from "views/IndexSections/Tools.jsx";
-import JavaScript from "views/IndexSections/JavaScript.jsx";
+import Projects from "views/IndexSections/Projects.jsx";
 import Download from "views/IndexSections/Download.jsx";
 
 class Index extends React.Component {
@@ -27,7 +27,7 @@ class Index extends React.Component {
           <div className="main">
             <Skills />
             <Tools />
-            <JavaScript />
+            <Projects />
             <Download />
           </div>
           <Footer />
