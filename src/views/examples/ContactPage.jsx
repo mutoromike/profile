@@ -26,14 +26,18 @@ import Footer from "components/Footer/Footer.jsx";
 class ContactPage extends React.Component {
   state = {
     squares1to6: "",
-    squares7and8: ""
+    squares7and8: "",
+    "name": "",
+    "phone": "",
+    "email": "",
+    "message": ""
   };
   componentDidMount() {
-    document.body.classList.toggle("register-page");
+    document.body.classList.toggle("contact-page");
     document.documentElement.addEventListener("mousemove", this.followCursor);
   }
   componentWillUnmount() {
-    document.body.classList.toggle("register-page");
+    document.body.classList.toggle("contact-page");
     document.documentElement.removeEventListener(
       "mousemove",
       this.followCursor
@@ -57,6 +61,7 @@ class ContactPage extends React.Component {
         "deg)"
     });
   };
+  sendEmail
   render() {
     return (
       <>

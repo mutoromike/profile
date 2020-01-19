@@ -1,9 +1,9 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // reactstrap components
 import {
   Button,
-  NavLink,
+  // NavLink,
   Container,
   Row,
   Col,
@@ -19,9 +19,9 @@ class Footer extends React.Component {
             <Col md="3">
             </Col>
             <Col md="3">
-                  <NavLink href="https://creative-tim.com/contact-us?ref=blkdsr-footer">
+                  <Link to="/contact-page">
                     Contact Me
-                  </NavLink>
+                  </Link>
             </Col>
             <Col md="3">
             <p>   </p>

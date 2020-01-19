@@ -11,20 +11,20 @@ import {
 
 const carouselItems = [
   {
-    src: require("assets/img/denys.jpg"),
+    src: require("assets/img/events.png"),
     altText: "Slide 1",
     caption: ""
-  },
-  {
-    src: require("assets/img/fabien-bazanegue.jpg"),
-    altText: "Slide 2",
-    caption: ""
-  },
-  {
-    src: require("assets/img/mark-finn.jpg"),
-    altText: "Slide 3",
-    caption: ""
   }
+  // {
+  //   src: require("assets/img/fabien-bazanegue.jpg"),
+  //   altText: "Slide 2",
+  //   caption: ""
+  // },
+  // {
+  //   src: require("assets/img/mark-finn.jpg"),
+  //   altText: "Slide 3",
+  //   caption: ""
+  // }
 ];
 
 class Projects extends React.Component {
@@ -67,9 +67,9 @@ class Projects extends React.Component {
                 <Button
                   className="mt-4"
                   color="warning"
-                  href="https://demos.creative-tim.com/blk-design-system-react/#/documentation/alerts"
+                  href="https://www.github.com/mutoromike"
                 >
-                  See the application
+                  See all my projects
                 </Button>
               </Col>
               <Col lg="6">

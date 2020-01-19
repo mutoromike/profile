@@ -1,5 +1,6 @@
 import React from "react";
 // reactstrap components
+import { Link } from "react-router-dom";
 import { Button, Container, Row, Col } from "reactstrap";
 
 class Download extends React.Component {
@@ -22,15 +23,17 @@ class Download extends React.Component {
               </h4>
             </Col>
             <Col className="text-center" lg="8" md="12">
+            <Link to="/contact-page">
               <Button
                 className="btn-round"
                 color="info"
-                href="https://www.creative-tim.com/product/blk-design-system-react?ref=blkdsr-index-page-download-section"
+                // href="/contact-page"
                 role="button"
                 size="lg"
               >
                 Contact Me
               </Button>
+              </Link>
             </Col>
           </Row>
         </Container>
