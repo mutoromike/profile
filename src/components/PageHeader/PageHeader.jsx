@@ -1,7 +1,7 @@
 import React from "react";
 
 // reactstrap components
-import { Container, Col, Row } from "reactstrap";
+import { Container, Row } from "reactstrap";
 
 class PageHeader extends React.Component {
   render() {

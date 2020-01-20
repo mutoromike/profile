@@ -1,5 +1,6 @@
 import React from "react";
 import classnames from "classnames";
+import emailjs from "emailjs-com";
 // reactstrap components
 import {
   Button,
@@ -27,10 +28,12 @@ class ContactPage extends React.Component {
   state = {
     squares1to6: "",
     squares7and8: "",
-    "name": "",
-    "phone": "",
-    "email": "",
-    "message": ""
+    form: {
+      "name": "",
+      "phone": "",
+      "email": "",
+      "message": ""
+    }
   };
   componentDidMount() {
     document.body.classList.toggle("contact-page");
@@ -61,9 +64,48 @@ class ContactPage extends React.Component {
         "deg)"
     });
   };
-  sendEmail
+  onChange = (event) => {
+    const myState = this.state;
+    myState.form[event.target.name] = event.target.value;
+    this.setState(myState);
+  }
+
+  // formIsValid = () => {
+  //   const _errors = {}
+  //   if (!name) _errors.name = "Name is required"
+  //   if (!phone) _errors.phone = "Phone is required"
+  //   if (!email) _errors.email = "Email is required"
+  //   if (!message) _errors.message = "Message is required"
+
+  //   // setErrors(_errors)
+  //   return Object.keys(_errors).length === 0
+  // }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(">>>>>>>", this.state);
+    console.log(process.env);
+    const templateId = process.env.REACT_APP_YOUR_TEMPLATE;
+    const serviceId = process.env.REACT_APP_YOUR_SERVICE_ID;
+  
+    this.sendFeedback(templateId, serviceId, {
+      message_html: this.state.form.message,
+      from_name: this.state.form.name,
+      reply_to: this.state.form.email})
+    }
+  
+    sendFeedback (templateId, serviceId, variables) {
+    window.emailjs.send(
+      serviceId, templateId,
+      variables
+      ).then(res => {
+        console.log('Email successfully sent!')
+      })
+      .catch(err => console.error('An error occured. Email not sent!!', err))
+    }
   render() {
     return (
+      
       <>
         <IndexNavbar />
         <div className="wrapper">
@@ -92,7 +134,7 @@ class ContactPage extends React.Component {
                         <CardTitle tag="h4">mail me</CardTitle>
                       </CardHeader>
                       <CardBody>
-                        <Form className="form">
+                        <Form className="form" >
                           <InputGroup
                             className={classnames({
                               "input-group-focus": this.state.fullNameFocus
@@ -106,6 +148,9 @@ class ContactPage extends React.Component {
                             <Input
                               placeholder="Name"
                               type="text"
+                              name="name"
+                              onChange={this.onChange}
+                              required
                               onFocus={e =>
                                 this.setState({ fullNameFocus: true })
                               }
@@ -127,6 +172,9 @@ class ContactPage extends React.Component {
                             <Input
                               placeholder="Phone"
                               type="text"
+                              name="phone"
+                              onChange={this.onChange}
+                              required
                               onFocus={e =>
                                 this.setState({ phone: true })
                               }
@@ -148,6 +196,9 @@ class ContactPage extends React.Component {
                             <Input
                               placeholder="Email"
                               type="text"
+                              name="email"
+                              onChange={this.onChange}
+                              required
                               onFocus={e => this.setState({ emailFocus: true })}
                               onBlur={e => this.setState({ emailFocus: false })}
                             />
@@ -165,18 +216,22 @@ class ContactPage extends React.Component {
                             <Input
                               placeholder="Message"
                               type="textarea"
+                              name="message"
+                              onChange={this.onChange}
+
                               onFocus={e =>
                                 this.setState({ passwordFocus: true })
                               }
                               onBlur={e =>
                                 this.setState({ passwordFocus: false })
                               }
+                              required={true}
                             />
                           </InputGroup>
                         </Form>
                       </CardBody>
                       <CardFooter>
-                        <Button className="btn-round" color="primary" size="lg">
+                        <Button className="btn-round" onClick={this.handleSubmit} color="primary" size="lg" type="submit">
                           Send Message
                         </Button>
                       </CardFooter>

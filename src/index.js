@@ -9,6 +9,7 @@ import "assets/demo/demo.css";
 import Index from "views/Index.jsx";
 import ContactPage from "views/examples/ContactPage.jsx";
 
+require('dotenv').config()
 ReactDOM.render(
   <BrowserRouter>
     <Switch>

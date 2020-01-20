@@ -21,5 +21,16 @@
 <body>
   <div id="root"></div>
 </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js">
+</script>
+<script 
+type="text/javascript">
+
+    function sendMail() {
+      emailjs.init('%REACT_APP_YOUR_USER_ID%');
+    };
+
+    sendMail();
+</script>
 
 </html>
