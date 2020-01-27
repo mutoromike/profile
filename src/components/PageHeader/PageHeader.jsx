@@ -1,7 +1,7 @@
 import React from "react";
 
 // reactstrap components
-import { Container } from "reactstrap";
+import { Container, Row } from "reactstrap";
 
 class PageHeader extends React.Component {
   render() {
@@ -16,10 +16,22 @@ class PageHeader extends React.Component {
         <div className="squares square7" />
         <Container>
           <div className="content-center brand">
-            <h1 className="h1-seo">Michael Mukalo</h1>
+            <Row>
+                <img
+                  alt="..."
+                  className="img-fluid rounded-circle shadow img-center"
+                  src={require("assets/img/mike.jpeg")}
+                  style={{ width: "150px", location: "center" }}
+                />
+            </Row>
+            <h2 className="h1-seo">Michael Mukalo</h2>
             <h3 className="d-none d-sm-block">
               A BackEnd Engineer with a touch of DevOps and FrontEnd
             </h3>
+
+
+
+
           </div>
         </Container>
       </div>

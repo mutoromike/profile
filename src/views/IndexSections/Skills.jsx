@@ -16,7 +16,7 @@ import {
   NavLink
 } from "reactstrap";
 
-class Tabs extends React.Component {
+class Skills extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,7 +35,7 @@ class Tabs extends React.Component {
       <div className="section section-tabs">
         <Container>
           <div className="title">
-            <h3 className="mb-3">Skills</h3>
+            <h2 className="title">SKILLS</h2>
           </div>
           <Row>
             <Col className="ml-auto mr-auto" md="10" xl="6">
@@ -46,7 +46,7 @@ class Tabs extends React.Component {
               </div>
               <Card>
                 <CardHeader>
-                  <Nav className="nav-tabs-info" role="tablist" tabs>
+                  <Nav className="nav-tabs-primary" role="tablist" tabs>
                     <NavItem>
                       <NavLink
                         className={classnames({
@@ -111,13 +111,15 @@ class Tabs extends React.Component {
                         type="button"
                       >
                         Flask
-                      </Button><Button
+                      </Button>
+                      <Button
                         className="btn-round"
                         color="primary"
                         type="button"
                       >
                         Pandas
-                      </Button><Button
+                      </Button>
+                      <Button
                         className="btn-round"
                         color="primary"
                         type="button"
@@ -127,23 +129,40 @@ class Tabs extends React.Component {
                     </TabPane>
                     <TabPane tabId="link2">
                       <p>
-                        Completely synergize resource taxing relationships via
-                        premier niche markets. Professionally cultivate
-                        one-to-one customer service with robust ideas. <br />
+                        I have expertise in creating Node-Express APIs. I
+                        will rate this 70% since Python is my preferred BackEnd
+                        Language <br />
                         <br />
-                        Dynamically innovate resource-leveling customer service
-                        for state of the art customer service.
+                        I don't mind working with a JavaScript API. Please reach out!
                       </p>
+                      <Button
+                        className="btn-round"
+                        color="primary"
+                        type="button"
+                      >
+                        NodeJS
+                      </Button>
+                      <Button
+                        className="btn-round"
+                        color="primary"
+                        type="button"
+                      >
+                        Express
+                      </Button>
                     </TabPane>
                     <TabPane tabId="link3">
                       <p>
-                        Efficiently unleash cross-media information without
-                        cross-media value. Quickly maximize timely deliverables
-                        for real-time schemas. <br />
+                        I have experience with GraphQL. Majorly with Python.<br />
                         <br />
-                        Dramatically maintain clicks-and-mortar solutions
-                        without functional solutions.
+                        Reach out for an awesome, One Endpoint API
                       </p>
+                      <Button
+                        className="btn-round"
+                        color="primary"
+                        type="button"
+                      >
+                        Python-GraphQL
+                      </Button>
                     </TabPane>
                   </TabContent>
                 </CardBody>
@@ -152,12 +171,12 @@ class Tabs extends React.Component {
             <Col className="ml-auto mr-auto" md="10" xl="6">
               <div className="mb-3">
                 <small className="text-uppercase font-weight-bold">
-                  With text
+                  FrontEnd & DevOps
                 </small>
               </div>
               <Card>
                 <CardHeader>
-                  <Nav className="nav-tabs-info" role="tablist" tabs>
+                  <Nav className="nav-tabs-success" role="tablist" tabs>
                     <NavItem>
                       <NavLink
                         className={classnames({
@@ -166,7 +185,7 @@ class Tabs extends React.Component {
                         onClick={e => this.toggleTabs(e, "textTabs", 4)}
                         href="#pablo"
                       >
-                        Profile
+                        FrontEnd
                       </NavLink>
                     </NavItem>
                     <NavItem>
@@ -177,10 +196,10 @@ class Tabs extends React.Component {
                         onClick={e => this.toggleTabs(e, "textTabs", 5)}
                         href="#pablo"
                       >
-                        Settings
+                        DevOps
                       </NavLink>
                     </NavItem>
-                    <NavItem>
+                    {/* <NavItem>
                       <NavLink
                         className={classnames({
                           active: this.state.textTabs === 6
@@ -190,7 +209,7 @@ class Tabs extends React.Component {
                       >
                         Options
                       </NavLink>
-                    </NavItem>
+                    </NavItem> */}
                   </Nav>
                 </CardHeader>
                 <CardBody>
@@ -200,39 +219,76 @@ class Tabs extends React.Component {
                   >
                     <TabPane tabId="link4">
                       <p>
-                        These cases are perfectly simple and easy to
-                        distinguish. In a free hour, when our power of choice is
-                        untrammelled and when nothing prevents our being able to
-                        do what we like best, every pleasure is to be welcomed
-                        and every pain avoided. <br />
-                        But in certain circumstances and owing to the claims of
-                        duty or the obligations of business it will frequently
-                        occur that pleasures
+                        JavaScript has alays been fun to write. I have experience, having
+                        worked with ReactJS on a number of projects. <br />
+                        Combining this with other components such as testing tools, 
+                        I believe I have what it takes!
                       </p>
+                      <Button
+                        className="btn-round"
+                        color="success"
+                        type="button"
+                      >
+                        ReactJS
+                      </Button>
+                      <Button
+                        className="btn-round"
+                        color="success"
+                        type="button"
+                      >
+                        Mocha
+                      </Button>
+                      <Button
+                        className="btn-round"
+                        color="success"
+                        type="button"
+                      >
+                        HTML/CSS/SCSS
+                      </Button>
+                      <Button
+                        className="btn-round"
+                        color="success"
+                        type="button"
+                      >
+                        Jest
+                      </Button>
                     </TabPane>
                     <TabPane tabId="link5">
                       <p>
-                        I will be the leader of a company that ends up being
-                        worth billions of dollars, because I got the answers. I
-                        understand culture. I am the nucleus. I think that’s a
-                        responsibility that I have, to push possibilities, to
-                        show people, this is the level that things could be at.
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at.
+                        An Engineer with DevOps under his sleeves. I've worked with Kubernetes, 
+                        Heroku, Docker and many others. I believe in CI/CD efficiency, and 
+                        that seamless work should be given first priority. Always
                       </p>
+                      <Button
+                        className="btn-round"
+                        color="success"
+                        type="button"
+                      >
+                        Kubernetes
+                      </Button>
+                      <Button
+                        className="btn-round"
+                        color="success"
+                        type="button"
+                      >
+                        CI/CD
+                      </Button>
+                      <Button
+                        className="btn-round"
+                        color="success"
+                        type="button"
+                      >
+                        Heroku
+                      </Button>
+                      <Button
+                        className="btn-round"
+                        color="success"
+                        type="button"
+                      >
+                        Docker
+                      </Button>
                     </TabPane>
-                    <TabPane tabId="link6">
-                      <p>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
-                      </p>
+                    <TabPane tabId="link5">
                     </TabPane>
                   </TabContent>
                 </CardBody>
@@ -245,4 +301,4 @@ class Tabs extends React.Component {
   }
 }
 
-export default Tabs;
+export default Skills;

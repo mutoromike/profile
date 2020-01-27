@@ -6,14 +6,9 @@ import PageHeader from "components/PageHeader/PageHeader.jsx";
 import Footer from "components/Footer/Footer.jsx";
 
 // sections for this page/view
-import Basics from "views/IndexSections/Basics.jsx";
-import Navbars from "views/IndexSections/Navbars.jsx";
-import Tabs from "views/IndexSections/Tabs.jsx";
-import Pagination from "views/IndexSections/Pagination.jsx";
-import Notifications from "views/IndexSections/Notifications.jsx";
-import Typography from "views/IndexSections/Typography.jsx";
-import JavaScript from "views/IndexSections/JavaScript.jsx";
-import Signup from "views/IndexSections/Signup.jsx";
+import Skills from "views/IndexSections/Skills.jsx";
+import Tools from "views/IndexSections/Tools.jsx";
+import Projects from "views/IndexSections/Projects.jsx";
 import Download from "views/IndexSections/Download.jsx";
 
 class Index extends React.Component {
@@ -30,14 +25,9 @@ class Index extends React.Component {
         <div className="wrapper">
           <PageHeader />
           <div className="main">
-            <Basics />
-            <Navbars />
-            <Tabs />
-            <Pagination />
-            <Notifications />
-            <Typography />
-            <JavaScript />
-            <Signup />
+            <Skills />
+            <Tools />
+            <Projects />
             <Download />
           </div>
           <Footer />
