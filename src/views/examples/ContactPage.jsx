@@ -1,5 +1,7 @@
 import React from "react";
 import classnames from "classnames";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // reactstrap components
 import {
   Button,
@@ -23,17 +25,24 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar.jsx";
 import Footer from "components/Footer/Footer.jsx";
 
-class RegisterPage extends React.Component {
+class ContactPage extends React.Component {
   state = {
     squares1to6: "",
-    squares7and8: ""
+    squares7and8: "",
+    form: {
+      name: "",
+      phone: "",
+      email: "",
+      message: ""
+    }
   };
   componentDidMount() {
-    document.body.classList.toggle("register-page");
+    document.body.classList.toggle("contact-page");
     document.documentElement.addEventListener("mousemove", this.followCursor);
+    // this.initialState = this.state
   }
   componentWillUnmount() {
-    document.body.classList.toggle("register-page");
+    document.body.classList.toggle("contact-page");
     document.documentElement.removeEventListener(
       "mousemove",
       this.followCursor
@@ -57,6 +66,59 @@ class RegisterPage extends React.Component {
         "deg)"
     });
   };
+  onChange = event => {
+    const myState = this.state;
+    myState.form[event.target.name] = event.target.value;
+    this.setState(myState);
+  };
+
+  formIsValid = () => {
+    let isFormValid = true;
+    Object.entries(this.state.form).map(([key, value]) => {
+      if (!value) {
+        toast.error(`${key} cannot be empty`);
+        isFormValid = false;
+      }
+
+      if(key === "email") {
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.form.email)) {
+          toast.error("please use a valid email");
+          isFormValid = false;
+        }
+      }
+    });
+
+    return isFormValid;
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const templateId = process.env.REACT_APP_YOUR_TEMPLATE;
+    const serviceId = process.env.REACT_APP_YOUR_SERVICE_ID;
+    const message =
+      this.state.form.message +
+      " from " +
+      this.state.form.phone +
+      " with email " +
+      this.state.form.email;
+    if (!this.formIsValid()) return;
+    console.log("we are sending the message");
+    this.sendFeedback(templateId, serviceId, {
+      message_html: message,
+      from_name: this.state.form.name,
+      reply_to: this.state.form.email
+    });
+  };
+
+  sendFeedback(templateId, serviceId, variables) {
+    window.emailjs
+      .send(serviceId, templateId, variables)
+      .then(res => {
+        console.log("Email successfully sent!");
+        toast.success("Email successfully sent!");
+      })
+      .catch(err => console.error("An error occured. Email not sent!!", err));
+  }
   render() {
     return (
       <>
@@ -85,6 +147,11 @@ class RegisterPage extends React.Component {
                           src={require("assets/img/square-purple-1.png")}
                         />
                         <CardTitle tag="h4">mail me</CardTitle>
+                        <ToastContainer
+                          hideProgressBar={true}
+                          newestOnTop={true}
+                          autoClose={3000}
+                        />
                       </CardHeader>
                       <CardBody>
                         <Form className="form">
@@ -101,6 +168,9 @@ class RegisterPage extends React.Component {
                             <Input
                               placeholder="Name"
                               type="text"
+                              name="name"
+                              onChange={this.onChange}
+                              required
                               onFocus={e =>
                                 this.setState({ fullNameFocus: true })
                               }
@@ -122,12 +192,11 @@ class RegisterPage extends React.Component {
                             <Input
                               placeholder="Phone"
                               type="text"
-                              onFocus={e =>
-                                this.setState({ phone: true })
-                              }
-                              onBlur={e =>
-                                this.setState({ phone: false })
-                              }
+                              name="phone"
+                              onChange={this.onChange}
+                              required
+                              onFocus={e => this.setState({ phone: true })}
+                              onBlur={e => this.setState({ phone: false })}
                             />
                           </InputGroup>
                           <InputGroup
@@ -143,6 +212,9 @@ class RegisterPage extends React.Component {
                             <Input
                               placeholder="Email"
                               type="text"
+                              name="email"
+                              onChange={this.onChange}
+                              required
                               onFocus={e => this.setState({ emailFocus: true })}
                               onBlur={e => this.setState({ emailFocus: false })}
                             />
@@ -160,18 +232,27 @@ class RegisterPage extends React.Component {
                             <Input
                               placeholder="Message"
                               type="textarea"
+                              name="message"
+                              onChange={this.onChange}
                               onFocus={e =>
                                 this.setState({ passwordFocus: true })
                               }
                               onBlur={e =>
                                 this.setState({ passwordFocus: false })
                               }
+                              required={true}
                             />
                           </InputGroup>
                         </Form>
                       </CardBody>
                       <CardFooter>
-                        <Button className="btn-round" color="primary" size="lg">
+                        <Button
+                          className="btn-round"
+                          onClick={this.handleSubmit}
+                          color="primary"
+                          size="lg"
+                          type="submit"
+                        >
                           Send Message
                         </Button>
                       </CardFooter>
@@ -219,4 +300,4 @@ class RegisterPage extends React.Component {
   }
 }
 
-export default RegisterPage;
+export default ContactPage;
