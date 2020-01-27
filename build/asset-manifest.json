@@ -1,0 +1,23 @@
+{
+  "main.css": "/profile/static/css/main.fe17d467.chunk.css",
+  "main.js": "/profile/static/js/main.77c2a49f.chunk.js",
+  "main.js.map": "/profile/static/js/main.77c2a49f.chunk.js.map",
+  "runtime~main.js": "/profile/static/js/runtime~main.189fd871.js",
+  "runtime~main.js.map": "/profile/static/js/runtime~main.189fd871.js.map",
+  "static/css/2.7bb16aaf.chunk.css": "/profile/static/css/2.7bb16aaf.chunk.css",
+  "static/js/2.99f20a85.chunk.js": "/profile/static/js/2.99f20a85.chunk.js",
+  "static/js/2.99f20a85.chunk.js.map": "/profile/static/js/2.99f20a85.chunk.js.map",
+  "index.html": "/profile/index.html",
+  "precache-manifest.810cc2dc222882d7245055b6741253f9.js": "/profile/precache-manifest.810cc2dc222882d7245055b6741253f9.js",
+  "service-worker.js": "/profile/service-worker.js",
+  "static/css/2.7bb16aaf.chunk.css.map": "/profile/static/css/2.7bb16aaf.chunk.css.map",
+  "static/css/main.fe17d467.chunk.css.map": "/profile/static/css/main.fe17d467.chunk.css.map",
+  "static/media/blk-design-system-react.scss?v=1.0.0": "/profile/static/media/square5.ff004a0e.png",
+  "static/media/events.png": "/profile/static/media/events.df3e7655.png",
+  "static/media/mike.jpeg": "/profile/static/media/mike.ca44ac53.jpeg",
+  "static/media/nucleo-icons.css": "/profile/static/media/nucleo.f0b489a5.woff",
+  "static/media/path1.png": "/profile/static/media/path1.b1e01ebb.png",
+  "static/media/path4.png": "/profile/static/media/path4.e37326c7.png",
+  "static/media/path5.png": "/profile/static/media/path5.ceb241f0.png",
+  "static/media/square-purple-1.png": "/profile/static/media/square-purple-1.79c1998f.png"
+}
