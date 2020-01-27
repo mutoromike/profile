@@ -1,6 +1,7 @@
 import React from "react";
 import classnames from "classnames";
-import emailjs from "emailjs-com";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // reactstrap components
 import {
   Button,
@@ -29,15 +30,16 @@ class ContactPage extends React.Component {
     squares1to6: "",
     squares7and8: "",
     form: {
-      "name": "",
-      "phone": "",
-      "email": "",
-      "message": ""
+      name: "",
+      phone: "",
+      email: "",
+      message: ""
     }
   };
   componentDidMount() {
     document.body.classList.toggle("contact-page");
     document.documentElement.addEventListener("mousemove", this.followCursor);
+    // this.initialState = this.state
   }
   componentWillUnmount() {
     document.body.classList.toggle("contact-page");
@@ -64,48 +66,61 @@ class ContactPage extends React.Component {
         "deg)"
     });
   };
-  onChange = (event) => {
+  onChange = event => {
     const myState = this.state;
     myState.form[event.target.name] = event.target.value;
     this.setState(myState);
-  }
+  };
 
-  // formIsValid = () => {
-  //   const _errors = {}
-  //   if (!name) _errors.name = "Name is required"
-  //   if (!phone) _errors.phone = "Phone is required"
-  //   if (!email) _errors.email = "Email is required"
-  //   if (!message) _errors.message = "Message is required"
+  formIsValid = () => {
+    let isFormValid = true;
+    Object.entries(this.state.form).map(([key, value]) => {
+      if (!value) {
+        toast.error(`${key} cannot be empty`);
+        isFormValid = false;
+      }
 
-  //   // setErrors(_errors)
-  //   return Object.keys(_errors).length === 0
-  // }
+      if(key === "email") {
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.form.email)) {
+          toast.error("please use a valid email");
+          isFormValid = false;
+        }
+      }
+    });
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    console.log(">>>>>>>", this.state);
-    console.log(process.env);
+    return isFormValid;
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
     const templateId = process.env.REACT_APP_YOUR_TEMPLATE;
     const serviceId = process.env.REACT_APP_YOUR_SERVICE_ID;
-  
+    const message =
+      this.state.form.message +
+      " from " +
+      this.state.form.phone +
+      " with email " +
+      this.state.form.email;
+    if (!this.formIsValid()) return;
+    console.log("we are sending the message");
     this.sendFeedback(templateId, serviceId, {
-      message_html: this.state.form.message,
+      message_html: message,
       from_name: this.state.form.name,
-      reply_to: this.state.form.email})
-    }
-  
-    sendFeedback (templateId, serviceId, variables) {
-    window.emailjs.send(
-      serviceId, templateId,
-      variables
-      ).then(res => {
-        console.log('Email successfully sent!')
+      reply_to: this.state.form.email
+    });
+  };
+
+  sendFeedback(templateId, serviceId, variables) {
+    window.emailjs
+      .send(serviceId, templateId, variables)
+      .then(res => {
+        console.log("Email successfully sent!");
+        toast.success("Email successfully sent!");
       })
-      .catch(err => console.error('An error occured. Email not sent!!', err))
-    }
+      .catch(err => console.error("An error occured. Email not sent!!", err));
+  }
   render() {
     return (
-      
       <>
         <IndexNavbar />
         <div className="wrapper">
@@ -132,9 +147,14 @@ class ContactPage extends React.Component {
                           src={require("assets/img/square-purple-1.png")}
                         />
                         <CardTitle tag="h4">mail me</CardTitle>
+                        <ToastContainer
+                          hideProgressBar={true}
+                          newestOnTop={true}
+                          autoClose={3000}
+                        />
                       </CardHeader>
                       <CardBody>
-                        <Form className="form" >
+                        <Form className="form">
                           <InputGroup
                             className={classnames({
                               "input-group-focus": this.state.fullNameFocus
@@ -175,12 +195,8 @@ class ContactPage extends React.Component {
                               name="phone"
                               onChange={this.onChange}
                               required
-                              onFocus={e =>
-                                this.setState({ phone: true })
-                              }
-                              onBlur={e =>
-                                this.setState({ phone: false })
-                              }
+                              onFocus={e => this.setState({ phone: true })}
+                              onBlur={e => this.setState({ phone: false })}
                             />
                           </InputGroup>
                           <InputGroup
@@ -218,7 +234,6 @@ class ContactPage extends React.Component {
                               type="textarea"
                               name="message"
                               onChange={this.onChange}
-
                               onFocus={e =>
                                 this.setState({ passwordFocus: true })
                               }
@@ -231,7 +246,13 @@ class ContactPage extends React.Component {
                         </Form>
                       </CardBody>
                       <CardFooter>
-                        <Button className="btn-round" onClick={this.handleSubmit} color="primary" size="lg" type="submit">
+                        <Button
+                          className="btn-round"
+                          onClick={this.handleSubmit}
+                          color="primary"
+                          size="lg"
+                          type="submit"
+                        >
                           Send Message
                         </Button>
                       </CardFooter>
