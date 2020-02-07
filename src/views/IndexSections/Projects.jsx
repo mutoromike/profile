@@ -1,30 +1,35 @@
 import React from "react";
 
 // reactstrap components
-import {
-  Button,
-  Container,
-  Row,
-  Col,
-  UncontrolledCarousel
-} from "reactstrap";
+import { Button, Container, Row, Col, UncontrolledCarousel } from "reactstrap";
 
-const carouselItems = [
+const carouselItem1 = [
   {
     src: require("assets/img/events.png"),
     altText: "Slide 1",
     caption: ""
   }
-  // {
-  //   src: require("assets/img/fabien-bazanegue.jpg"),
-  //   altText: "Slide 2",
-  //   caption: ""
-  // },
-  // {
-  //   src: require("assets/img/mark-finn.jpg"),
-  //   altText: "Slide 3",
-  //   caption: ""
-  // }
+];
+const carouselItem2 = [
+  {
+    src: require("assets/img/wger.png"),
+    altText: "Slide 2",
+    caption: ""
+  }
+];
+const carouselItem3 = [
+  {
+    src: require("assets/img/converge.png"),
+    altText: "Slide 2",
+    caption: ""
+  }
+];
+const carouselItem4 = [
+  {
+    src: require("assets/img/smartgyms.png"),
+    altText: "Slide 2",
+    caption: ""
+  }
 ];
 
 class Projects extends React.Component {
@@ -57,12 +62,11 @@ class Projects extends React.Component {
             </div>
             <Row className="justify-content-between align-items-center">
               <Col className="mb-5 mb-lg-0" lg="5">
-                <h1 className="text-white font-weight-light">
-                  Bright Events
-                </h1>
+                <h1 className="text-white font-weight-light">Bright Events</h1>
                 <p className="text-white mt-4">
-                  A platform that allows Event organizers the freedom to organize and 
-                  manage events. This is built with Python (backend) and ReactJS (frontend).
+                  A platform that allows Event organizers the freedom to
+                  organize and manage events. This is built with Python
+                  (backend) and ReactJS (frontend).
                 </p>
                 <Button
                   className="mt-4"
@@ -74,7 +78,85 @@ class Projects extends React.Component {
               </Col>
               <Col lg="6">
                 <UncontrolledCarousel
-                  items={carouselItems}
+                  items={carouselItem1}
+                  indicators={false}
+                  autoPlay={false}
+                />
+              </Col>
+            </Row>
+            <br />
+            <Row className="justify-content-between align-items-center">
+              <Col className="mb-5 mb-lg-0" lg="5">
+                <h1 className="text-white font-weight-light">Wger</h1>
+                <p className="text-white mt-4">
+                  An application that manages your woorkouts, nutrition and diary. This
+                  manages flexible workout routines for any goals anyone has, personal 
+                  diet planning by creating as many meals with as many different ingredients 
+                  as one wishes and a diary. These come as WEIGHT TRACKER, GYM MANAGEMENT, CALENDAR 
+                  with an Excercise Database!
+                </p>
+                <Button
+                  className="mt-4"
+                  color="warning"
+                  href="https://wg-bigas-opus.herokuapp.com/en/software/features"
+                >
+                  Checkout Application
+                </Button>
+              </Col>
+              <Col lg="6">
+                <UncontrolledCarousel
+                  items={carouselItem2}
+                  indicators={false}
+                  autoPlay={false}
+                />
+              </Col>
+            </Row>
+            <br />
+            <Row className="justify-content-between align-items-center">
+              <Col className="mb-5 mb-lg-0" lg="5">
+                <h1 className="text-white font-weight-light">Converge</h1>
+                <p className="text-white mt-4">
+                  Collaboratively built an API (Python-Flask & GraphQL) that powers 
+                  a web and android version. Converge is a meeting rooms management application 
+                  that facilitates meeting room management across Andela.
+                </p>
+                <Button
+                  className="mt-4"
+                  color="warning"
+                  href="https://github.com/andela/mrm_api"
+                >
+                  View Project on Github
+                </Button>
+              </Col>
+              <Col lg="6">
+                <UncontrolledCarousel
+                  items={carouselItem3}
+                  indicators={false}
+                  autoPlay={false}
+                />
+              </Col>
+            </Row>
+            <br />
+            <Row className="justify-content-between align-items-center">
+              <Col className="mb-5 mb-lg-0" lg="5">
+                <h1 className="text-white font-weight-light">Smart Gyms</h1>
+                <p className="text-white mt-4">
+                  Automated a Gyms Power usage and traffic. This is an IoT project that is built 
+                  with Python-Flask backend and a ReactJS frontend. With the data, the owner can track 
+                  energy usage daily, weekly and monthly, resulting to efficient planning, management and 
+                  implementation of cost cutting measures. 
+                </p>
+                <Button
+                  className="mt-4"
+                  color="warning"
+                  href="#"
+                >
+                  This is a Private Project
+                </Button>
+              </Col>
+              <Col lg="6">
+                <UncontrolledCarousel
+                  items={carouselItem4}
                   indicators={false}
                   autoPlay={false}
                 />
